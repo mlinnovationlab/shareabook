@@ -1,0 +1,350 @@
+/* app css stylesheet */
+body{
+  /*font-family: 'Raleway', sans-serif;*/
+  /*font-family: 'Roboto', sans-serif;*/
+  background: #e3e3e3;
+}
+.home-page{
+  height:100vh;
+  /*background-image: url("../img/bg_new.png");*/
+}
+.login-btn{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 230px;
+}
+.home-login-box{
+  background: #fff;
+  border-radius: 5px;
+  /*border: 1px solid #000;*/
+  color: #444;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  margin-top: 50px;
+  max-width: 100%;
+  padding-bottom: 1.5em;
+  padding-top: 1.5em;
+  position: relative;
+  width: 480px;
+  text-align: center;
+  margin-bottom: 20px;
+  /*-webkit-box-shadow: 4px 4px 1px 0px rgba(214,214,214,1);*/
+  /*-moz-box-shadow: 4px 4px 1px 0px rgba(214,214,214,1);*/
+  /*box-shadow: 4px 4px 1px 0px rgba(214,214,214,1);*/
+}
+
+.about-page{
+  margin-top: 50px;
+  font-style: italic;
+}
+.about-page p{
+  font-size: 22px;
+  /*color: #e38d13;*/
+  /*font-weight: bold;*/
+}
+.about-page h1{
+  /*text-align: center;*/
+}
+.heading-line{
+  text-align: center;
+  padding-bottom: 15px;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid #e3e3e3;
+}
+.about-words{
+  /*background-color: #fff;*/
+}
+.tag-line{
+  color: #333333;
+  font-size: 16px;
+  font-style: italic;
+}
+.tag-line-small{
+  color: #777;
+  /*font-size: 13px;*/
+}
+.signup-box{
+  text-align: left;
+  width: 70%;
+  margin-top: 20px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.menu-item-box{
+  margin-top: 20px;
+}
+.search-box{
+  /*margin-right: 10px;*/
+  /*margin-left: 15px;*/
+}
+.book-grid{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.book-grid-item img{
+  /*width: 150px;*/
+  /*height: 230px;*/
+}
+.book-grid-item{
+  text-align: center;
+  /*border: 1px solid #e3e3e3;*/
+  /*border-radius: 10px;*/
+  padding-top: 15px;
+  height: 310px;
+  cursor: pointer;
+}
+.book-grid-item:hover{
+  /*border-bottom: 1px solid #333333;*/
+  background-color: #fff;
+}
+
+.home-grid:hover{
+  box-shadow: 2px 2px 1px #aeaeae;
+}
+.book-grid-item h5{
+  font-weight: bold;
+}
+.book-grid-item-text{
+
+}
+.menu-item-box button{
+  margin-bottom: 5px;
+}
+.newbook{
+  background-color: #ebebeb;
+}
+.header-content{
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.add-new-book{
+  background: #fff;
+  border-radius: 5px;
+  color: #444;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  max-width: 100%;
+  padding-bottom: 1.5em;
+  position: relative;
+}
+
+.book-detail-box{
+  background: #fff;
+  border-radius: 5px;
+  color: #444;
+  font-size: 1.1em;
+  max-width: 80%;
+  padding-bottom: 1.5em;
+  position: relative;
+}
+.book-edit-box{
+  background: #fff;
+  border-radius: 5px;
+  color: #444;
+  font-size: 1.1em;
+  max-width: 80%;
+  padding-bottom: 1.5em;
+  position: relative;
+}
+.book-detail-content-box{
+  margin-top: 10px;
+}
+.book-detail-content-box .form-group{
+  margin-bottom: 0;
+}
+
+.book-edit-content-box{
+  margin-top: 10px;
+}
+.book-edit-content-box .form-group{
+  margin-bottom: 15px;
+}
+
+.search-criteria-box{
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.search-book-item{
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 1px 1px 0.5px #aeaeae;
+  margin-right: 10px;
+}
+.search-results-box{
+  margin-bottom: 30px;
+  overflow-y: scroll;
+  height:70vh;
+}
+
+.ngn{
+  padding: 15px 50px;
+}
+
+.req-box-content-header{
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.profile-img{
+  width: 50px;
+  height: 50px;
+}
+.logo-img{
+  width: 70px;
+  height: 70px;
+  margin-top: 20px;
+}
+
+.add-new-book-cover{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.filter-box{
+  /*margin-top: 10px;*/
+}
+
+.filter-item{
+  border: 0;
+}
+.filter-item.active{
+  background-color: #7E8082;
+}
+.filter-item.active:hover{
+  background-color: #7E8082;
+}
+
+.home-sign-up-box{
+  background: #fff;
+  border-radius: 5px;
+  color: #444;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  margin-top: 30px;
+  max-width: 100%;
+  padding-bottom: 1.5em;
+  position: relative;
+  text-align: center;
+}
+
+.overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  /*height: 30px;*/
+  background-color:rgba(0, 0, 0, 0.3);
+  z-index:9999;
+  color:white;
+}
+
+.overlay-mybooks{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:90%;
+  /*height: 30px;*/
+  background-color:rgba(0, 0, 0, 0.7);
+  z-index:9999;
+  color:white;
+}
+
+.overlay-books{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:90%;
+  /*height: 30px;*/
+  /*background-color:rgba(0, 0, 0, 0.7);*/
+  z-index:9999;
+  /*color:white;*/
+}
+
+
+.option-btn{
+  color: #fff;
+}
+.option-btn:hover{
+  color: #fff;
+}
+.option-btn-black{
+  color: #000;
+}
+.option-btn-black:hover{
+  color: #000;
+}
+
+.book-desc-tip{
+  margin: 35px;
+  padding: 10px;
+  border: 1px solid #fff;
+  background-color:rgba(0, 0, 0, 0.8);
+  font-size: 12px;
+}
+.book-desc-tip-back{
+  /*margin: 35px;*/
+  padding: 10px;
+  color: #000;
+  /*border: 1px solid #fff;*/
+  /*background-color:rgba(0, 0, 0, 0.8);*/
+  font-size: 12px;
+}
+.desc-tag-line{
+  /*color: #aaaaaa;*/
+  font-size: 11px;
+}
+
+.see-more-btn{
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: bold;
+  color: #000000;
+}
+
+.btn-block:focus {
+  outline: none;
+}
+
+.community-label{
+  font-size: 10px;
+}
+
+.filter-item-header{
+  background-color: #7E8082;
+}
+
+.book-cat-name{
+  font-style: italic;
+  font-size: 18px;
+  /*margin-left: 20px;*/
+  /*border-bottom: 1px solid #333333;*/
+  background-color: #cbcbcb;
+  padding: 5px;
+}
+
+
+.new-books-box{
+  background-color: #e9e9e9;
+  padding-bottom: 10px;
+}
+.new-book-detail-box{
+  padding-top: 20px;
+}
+/*.flip.ng-hide-add{*/
+
+  /*-webkit-transform:  perspective(800px) rotateY( -180deg );*/
+  /*transform:  perspective(800px) rotateY( -180deg );*/
+/*}*/
+/*.flip.ng-hide-remove {*/
+  /*/!*-webkit-transform:  perspective(800px) rotateY( 180deg );*!/*/
+  /*/!*transform:  perspective(800px) rotateY( 180deg );*!/*/
+/*}*/
+/*.flip{*/
+  /*transition: -webkit-transform .5s;*/
+/*transition: transform .5s; */
+/*}*/

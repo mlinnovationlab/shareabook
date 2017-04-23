@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Books App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>-->
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/ng-notify/dist/ng-notify.min.css">
+  <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.min.css">
+  <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/autocomplete.css">
+  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap-social.css">
+</head>
+<body ng-app="booksApp">
+
+  <div ui-view></div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="assets/js/autocomplete.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/satellizer/satellizer.min.js"></script>
+  <script src="bower_components/ng-notify/dist/ng-notify.min.js"></script>
+  <script src="bower_components/ng-dialog/js/ngDialog.min.js"></script>
+  <script src="components/about/aboutController.js"></script>
+  <script src="components/home/homeController.js"></script>
+  <script src="components/userProfile/userProfileController.js"></script>
+  <script src="components/books/booksController.js"></script>
+  <script src="components/myBooks/myBooksController.js"></script>
+  <script src="components/newBook/newBookController.js"></script>
+  <script src="components/logout/logoutController.js"></script>
+  <script src="components/bookDetails/bookDetailController.js"></script>
+  <script src="components/bookRequests/out/outBookRequestsController.js"></script>
+  <script src="components/bookRequests/in/inBookRequestsController.js"></script>
+  <script src="components/bookEdit/bookEditController.js"></script>
+  <script src="components/auth/authService.js"></script>
+  <script src="components/users/usersService.js"></script>
+  <script src="components/newBook/newBookService.js"></script>
+  <script src="components/myBooks/myBooksService.js"></script>
+  <script src="components/books/booksService.js"></script>
+  <script src="components/bookDetails/bookDetailService.js"></script>
+  <script src="components/bookRequests/bookRequestsService.js"></script>
+  <script src="components/bookEdit/bookEditService.js"></script>
+  <script src="shared/nav/navService.js"></script>
+  <script src="shared/util/utilService.js"></script>
+  <script src="shared/toast/toastService.js"></script>
+  <script src="shared/dialog/dialogService.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

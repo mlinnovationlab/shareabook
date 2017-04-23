@@ -1,0 +1,45 @@
+<div class="container-fluid home-page">
+    <div class="row">
+
+        <div class="col-md-1">
+            <!--<div ui-view></div>-->
+        </div>
+
+        <div class="col-md-7 about-page">
+            <!--<div ui-view></div>-->
+            <div ng-include="'shared/about/aboutText.html'"></div>
+        </div>
+
+        <div class="col-md-3">
+
+
+            <div class="container home-login-box">
+                <div class="row heading-line">
+                    <!--&lt;!&ndash;<img src="assets/img/logo.jpg" alt="..." class="img-circle logo-img">&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<h3>Login</h3>&ndash;&gt;-->
+                    <p class="tag-line">Please login to share books</p>
+                </div>
+
+                <div class="row header-content">
+
+                    <a class="btn btn-social btn-facebook login-btn" ng-click="loginWithFb()">
+                        <span class="fa fa-facebook"></span> Login with Facebook
+                    </a>
+                    <br/>
+                    <a class="btn btn-social btn-google login-btn" ng-click="loginWithGoogle()">
+                        <span class="fa fa-google"></span> Login with Google
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-1">
+            <!--<div ui-view></div>-->
+        </div>
+    </div>
+</div>
+

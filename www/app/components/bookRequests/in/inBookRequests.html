@@ -1,0 +1,59 @@
+<div class="panel panel-{{setStyle(request.status)}}" ng-repeat="request in requests">
+    <div class="panel-heading"> <span class="label label-{{setStyle(request.status)}}">{{request.status}}</span>
+    ({{request.createdDateTime}})
+    </div>
+    <div class="panel-body">
+
+        <div class="col-md-6">
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-rounded"
+                             ng-src="{{request.book.coverImageURL || 'assets/img/default-book-small.jpg'}}" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading req-box-content-header">Book Details</h4>
+
+                    <p>{{request.book.title}}</p>
+
+                    <p>{{request.book.author}}</p>
+
+                    <button type="button" class="btn btn-default btn-xs"
+                            ng-click="showBook(request.book._id)">
+                        See Book</button>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="media-left">
+                <img ng-src="{{request.requester.profileImageURL || 'assets/img/user-icon.png'}}" alt="..." class="img-circle profile-img">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading req-box-content-header">Requester Details</h4>
+
+                <p>{{request.requester.name}}</p>
+
+                <p>{{request.requester.email}}</p>
+
+                <h6>Contact No : {{request.requester.contactNumber}}</h6>
+                <h6>Apartment No : {{request.requester.apartmentNumber}}</h6>
+                <h6 ng-if="request.requester.availability">Available
+                    <strong>{{request.requester.availability.day}}</strong> from
+                    <strong>{{request.requester.availability.from}}</strong> to
+                    <strong>{{request.requester.availability.to}}</strong></h6>
+            </div>
+        </div>
+        <div class="pull-right">
+            <div ng-repeat="action in requestActions(request.status)" >
+                <button type="button" class="btn btn-{{action.cssClass}} btn-xs"
+                        ng-click="performAction(action.actionFnName, request._id)">
+                    {{action.actionName}}</button>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+</div>

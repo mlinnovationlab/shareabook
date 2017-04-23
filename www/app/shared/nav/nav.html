@@ -1,0 +1,22 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/books">Book<strong>Sharing</strong> <span class="label label-info community-label">{{currentUser.community.name}}</span></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li ng-class="navItems[0]"><a href="#/my-books">My Books</a></li>
+                <li ng-class="navItems[1]"><a href="#/book-requests/in">My Requests
+                    <span ng-if = "currentUser.notifications.myRequests.inRequests > 0" class="label label-danger">{{currentUser.notifications.myRequests.inRequests}}</span>
+                </a></li>
+                <!--<li ng-class="navItems[2]"><a href="#/books">My Points</a></li>-->
+                <li ng-class="navItems[2]"><a href="#/profile">My Profile</a></li>
+                <li ng-class="navItems[3]"><a href="#/about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/logout"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    {{currentUser.email}} (Logout)</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

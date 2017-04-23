@@ -1,0 +1,105 @@
+<div ng-include="'shared/nav/nav.html'"></div>
+
+<div class="container book-detail-box">
+
+    <div class="row heading-line">
+        <h1>Book Details</h1>
+        <p class="alert-danger" ng-if="errorMsg">{{errorMsg}}</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3 book-grid-item">
+
+            <img ng-src="{{book.coverImageURL || 'assets/img/default-book-small.jpg'}}" alt="..." class="img-rounded">
+
+        </div>
+
+        <div class="col-md-6 book-detail-content-box">
+            <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Title : </label>
+                <div class="col-sm-8">
+                    <p class="form-control-static">{{book.title}}</p>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Author : </label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{book.author}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Description : </label>
+                    <div class="col-sm-8">
+                        <p ng-if="book.showMoreBtn" class="form-control-static">{{book.descriptionLess}}
+                            <span class="label label-info see-more-btn" ng-click="showMore()">see more</span></p>
+                        <p ng-if="book.showLessBtn" class="form-control-static">{{book.description}}
+                            <span class="label label-info see-more-btn" ng-click="showLess()">see less</span></p>
+                        <p ng-if="book.descriptionNormal" class="form-control-static">{{book.description}}</p>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="book.appropriateAge">
+                    <label class="col-sm-4 control-label">Appropriate Age : </label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{book.appropriateAge}} years</p>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="book.bookCategories.length > 0">
+                    <label class="col-sm-4 control-label">Categories : </label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{book.bookCategories.join()}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Status: </label>
+                    <div class="col-sm-8">
+                        <span ng-if="book.isAvaliable" class="label label-success">AVAILABLE</span>
+                        <span ng-if="!book.isAvaliable"  class="label label-warning">NOT AVAILABLE</span>
+                    </div>
+                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="col-sm-6 control-label">ISBN : </label>-->
+                    <!--<div class="col-sm-6">-->
+                        <!--<p class="form-control-static">{{book.isbn}}</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <hr/>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Owner's name</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{book.owner.name}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Owner's contact no</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{book.owner.contactNumber}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Owner's email</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{book.owner.email}}</p>
+                    </div>
+                </div>
+
+            </form>
+
+            <hr/>
+            <button ng-if="!isMyBook && book.isAvaliable" type="button" class="btn btn-warning pull-right" ng-click="requestBook()">
+                <span class="glyphicon glyphicon-flag"></span>
+                Request Book</button>
+            <button ng-if="isMyBook" type="button" class="btn btn-primary pull-right" ng-click="gotoEdit()">
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit Book</button>
+            <button ng-if="isMyBook" type="button" class="btn btn-danger" ng-click="deleteBook()">
+                <span class="glyphicon glyphicon-remove"></span>
+                Remove Book</button>
+
+        </div>
+
+    </div>
+
+</div>

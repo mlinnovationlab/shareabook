@@ -1,0 +1,203 @@
+<div ng-include="'shared/nav/nav.html'"></div>
+
+
+<div class="container">
+
+
+    <!--<div class="row">-->
+
+    <!-- -->
+
+    <!--</div>-->
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="filter-box">
+
+                <ul class="list-group">
+                    <li class="list-group-item filter-item">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" ng-model="showAllBooks" ng-change="setShowAllBooks()">Show All
+                            </label>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <ul class="list-group">
+                    <li class="list-group-item filter-item active">Filter by Age</li>
+                    <li class="list-group-item filter-item" ng-disabled="showAllBooks">
+                        <div class="checkbox" ng-repeat="age in filterAge">
+                            <label>
+                                <input type="checkbox" ng-model="age.enabled" ng-disabled="showAllBooks">{{age.name}}
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-link " ng-click="selectAllAges()"
+                                ng-disabled="showAllBooks">Select All
+                        </button>
+
+                    </li>
+
+                </ul>
+
+                <ul class="list-group">
+                    <li class="list-group-item filter-item active">Filter by Category</li>
+                    <li class="list-group-item filter-item" ng-disabled="showAllBooks">
+                        <div class="checkbox" ng-repeat="c in filterCategory">
+                            <label>
+                                <input type="checkbox" ng-model="c.enabled" ng-disabled="showAllBooks">{{c.name}}
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-link" ng-click="selectAllCategories()"
+                                ng-disabled="showAllBooks">Select All
+                        </button>
+
+                    </li>
+                </ul>
+
+                <ul class="list-group">
+                    <button type="button" class="btn btn-primary btn-block" ng-click="searchWithFilters()">Search
+                    </button>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+
+            <div class="search-box">
+                <input type="text" class="form-control" placeholder="Type to search book by title and author"
+                       ng-model="searchText">
+            </div>
+
+            <div class="row book-grid new-books-box">
+
+                <p class="book-cat-name">Newly Added</p>
+                <div ng-repeat="book in newBooks | filter:searchBooks()">
+
+                    <div class="col-md-3 book-grid-item home-grid" class="flip" ng-hide="isFlipped(book._id)"
+                         ng-mouseover="flipCard($event, book._id)">
+
+                        <div ng-click="viewBookDetails(book._id)">
+                            <img ng-src="{{book.coverImageURL || 'assets/img/default-book-small.jpg'}}" alt="..."
+                                 class="img-rounded">
+
+                            <h5>{{formatBookTitle(book.title)}}
+                                <!--<span ng-if="book.hasRequested" class="label label-warning">Requested</span>-->
+                                <span ng-if="book.hasRead || book.hasRequested" class="label label-info">Borrowed</span>
+                            </h5>
+
+                            <p>{{book.author}}</p>
+
+                            <div class="overlay-books" ng-show="options[book._id]">
+
+                                <button type="button" class="btn btn-link pull-right option-btn-black"
+                                        ng-click="flipCard($event, book._id)">
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                </button>
+
+                                <!--<div ng-if="book.description" class="book-desc-tip"><p>{{formatBookDescription(book.description)}}</p></div>-->
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 book-grid-item home-grid" class="flip" ng-hide="!isFlipped(book._id)"
+                         ng-mouseleave="unFlipCard($event, book._id)">
+
+                        <div ng-click="viewBookDetails(book._id)">
+
+                            <h5>{{formatBookTitle(book.title)}}
+                                <!--<span ng-if="book.hasRequested" class="label label-warning">Requested</span>-->
+                                <!--<span ng-if="book.hasRead || book.hasRequested" class="label label-info">Borrowed</span>-->
+                            </h5>
+
+                            <p>{{book.author}}</p>
+
+                            <div ng-if="book.description" class="book-desc-tip-back"><p>
+                                {{formatBookDescription(book.description)}}</p></div>
+
+
+                            <div class="overlay-books" ng-show="options[book._id]">
+
+                                <button type="button" class="btn btn-link pull-right option-btn-black"
+                                        ng-click="unFlipCard($event, book._id)">
+                                    <span class="glyphicon glyphicon-eye-close"></span>
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row book-grid new-books-box">
+
+                <p class="book-cat-name">More Books</p>
+                <div ng-repeat="book in books | filter:searchBooks()">
+
+                    <div class="col-md-3 book-grid-item home-grid" class="flip" ng-hide="isFlipped(book._id)"
+                         ng-mouseover="flipCard($event, book._id)">
+
+                        <div ng-click="viewBookDetails(book._id)">
+                            <img ng-src="{{book.coverImageURL || 'assets/img/default-book-small.jpg'}}" alt="..."
+                                 class="img-rounded">
+
+                            <h5>{{formatBookTitle(book.title)}}
+                                <!--<span ng-if="book.hasRequested" class="label label-warning">Requested</span>-->
+                                <span ng-if="book.hasRead || book.hasRequested" class="label label-info">Borrowed</span>
+                            </h5>
+
+                            <p>{{book.author}}</p>
+
+                            <!--<div class="overlay-books" ng-show="options[book._id]">-->
+
+                                <!--<button type="button" class="btn btn-link pull-right option-btn-black"-->
+                                        <!--ng-click="flipCard($event, book._id)">-->
+                                    <!--<span class="glyphicon glyphicon-eye-open"></span>-->
+                                <!--</button>-->
+
+                                <!--&lt;!&ndash;<div ng-if="book.description" class="book-desc-tip"><p>{{formatBookDescription(book.description)}}</p></div>&ndash;&gt;-->
+
+                            <!--</div>-->
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 book-grid-item home-grid" class="flip" ng-hide="!isFlipped(book._id)"
+                         ng-mouseleave="unFlipCard($event, book._id)">
+
+                        <div ng-click="viewBookDetails(book._id)">
+
+                            <h5>{{formatBookTitle(book.title)}}
+                                <!--<span ng-if="book.hasRequested" class="label label-warning">Requested</span>-->
+                                <!--<span ng-if="book.hasRead || book.hasRequested" class="label label-info">Borrowed</span>-->
+                            </h5>
+
+                            <p>{{book.author}}</p>
+
+                            <div ng-if="book.description" class="book-desc-tip-back"><p>
+                                {{formatBookDescription(book.description)}}</p></div>
+
+
+                            <!--<div class="overlay-books" ng-show="options[book._id]">-->
+
+                                <!--<button type="button" class="btn btn-link pull-right option-btn-black"-->
+                                        <!--ng-click="unFlipCard($event, book._id)">-->
+                                    <!--<span class="glyphicon glyphicon-eye-close"></span>-->
+                                <!--</button>-->
+
+
+                            <!--</div>-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

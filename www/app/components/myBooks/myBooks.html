@@ -1,0 +1,57 @@
+<div ng-include="'shared/nav/nav.html'"></div>
+
+<div class="container">
+
+    <div class="row">
+
+
+        <div class="col-md-3">
+            <!--<fb:login-button show-faces="true" max-rows="1" size="large"></fb:login-button>-->
+            <button type="button" class="btn btn-primary pull-left" ng-click="goToAddBookPage()">
+                <span class="glyphicon glyphicon-plus"></span>
+                Add Book to my books</button>
+        </div>
+        <div class="col-md-3 pull-right">
+            <div class="search-box">
+                <input type="text" class="form-control" placeholder="Type to search my book by title and author" ng-model="searchText">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row book-grid">
+
+        <div class="col-md-3 book-grid-item home-grid" ng-repeat="book in books | filter:searchMyBooks()"
+                ng-mouseover="showOptions(book._id)" ng-mouseleave="hideOptions()">
+
+            <div ng-click="viewBookDetails(book._id)">
+
+                <img ng-src="{{book.coverImageURL || 'assets/img/default-book-small.jpg'}}" alt="..." class="img-rounded">
+                <h5>{{formatBookTitle(book.title)}}
+                    <span ng-if="!book.requester" class="label label-success">A</span>
+                    <span ng-if="book.requester" class="label label-warning">NA</span>
+                </h5>
+                <p>{{book.author}}</p>
+                    <div class="overlay-mybooks" ng-show="options[book._id]" >
+
+                    <button type="button" class="btn btn-link pull-right option-btn" ng-click="deleteBook(book)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+
+                    <button type="button" class="btn btn-link pull-right option-btn" ng-click="editBook(book._id)">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+
+                        <button type="button" class="btn btn-link pull-right option-btn" ng-click="">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </button>
+
+                    <!--<div ng-if="book.description" class="book-desc-tip"><p>{{formatBookDescription(book.description)}}</p></div>-->
+
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

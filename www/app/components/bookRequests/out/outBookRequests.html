@@ -1,0 +1,57 @@
+<div class="panel panel-{{setStyle(request.status)}}" ng-repeat="request in requests">
+    <div class="panel-heading"> <span class="label label-{{setStyle(request.status)}}">{{request.status}}</span>
+        ({{request.createdDateTime}})</div>
+    <div class="panel-body">
+
+        <div class="col-md-6">
+            <div class="media">
+                <div class="media-left">
+                        <img class="media-object img-rounded"
+                             ng-src="{{request.book.coverImageURL || 'assets/img/default-book-small.jpg'}}" alt="...">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading req-box-content-header">Book Details</h4>
+
+                    <p>{{request.book.title}}</p>
+
+                    <p>{{request.book.author}}</p>
+
+                    <button type="button" class="btn btn-default btn-xs"
+                            ng-click="showBook(request.book._id)">
+                        See Book</button>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="media-left">
+                <img ng-src="{{request.owner.profileImageURL || 'assets/img/user-icon.png'}}" alt="..." class="img-circle profile-img">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading req-box-content-header">Owner Details</h4>
+
+                <p>{{request.owner.name}}</p>
+
+                <p>{{request.owner.email}}</p>
+
+                <h6>Contact No : {{request.owner.contactNumber}}</h6>
+                <h6>Apartment No : {{request.owner.apartmentNumber}}</h6>
+                <h6 ng-if="request.owner.availability">Available
+                    <strong>{{request.owner.availability.day}}</strong> from
+                    <strong>{{request.owner.availability.from}}</strong> to
+                    <strong>{{request.owner.availability.to}}</strong></h6>
+            </div>
+
+        </div>
+        <div class="pull-right">
+            <div ng-repeat="action in requestActions(request.status)" >
+                <button type="button" class="btn btn-{{action.cssClass}} btn-xs"
+                        ng-click="performAction(action.actionFnName, request._id)">
+                    {{action.actionName}}</button>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div ng-include="'shared/nav/nav.html'"></div>
+
+<div class="container book-edit-box">
+
+    <div class="row heading-line">
+        <h1>Update Book Details</h1>
+        <p class="alert-danger" ng-if="errorMsg">{{errorMsg}}</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3 book-grid-item">
+
+            <img ng-src="{{book.coverImageURL || 'assets/img/default-book-small.jpg'}}" alt="..." class="img-rounded">
+
+        </div>
+
+        <div class="col-md-6 book-edit-content-box">
+            <form>
+                <div class="form-group">
+                    <label>Book Title</label>
+                    <input type="text" class="form-control" ng-model="book.title">
+                </div>
+                <div class="form-group">
+                    <label>Author</label>
+                    <input type="text" class="form-control" ng-model="book.author">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" rows="10" ng-model="book.description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Appropriate Age</label>
+                    <select class="form-control" ng-model="book.appropriateAge">
+                        <option ng-repeat="a in ages">{{a}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Categories</label>
+                    <div class="checkbox" ng-repeat="c in categories">
+                        <label>
+                            <input type="checkbox" ng-model="c.enabled">{{c.name}}
+                        </label>
+                    </div>
+                </div>
+            </form>
+
+            <hr/>
+            <button ng-if="isMyBook" type="button" class="btn btn-warning pull-right" ng-click="updateBook()">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                Update</button>
+            <!--<button ng-if="isMyBook" type="button" class="btn btn-primary pull-right">-->
+                <!--<span class="glyphicon glyphicon-edit"></span>-->
+                <!--Edit Book</button>-->
+
+        </div>
+
+    </div>
+
+</div>

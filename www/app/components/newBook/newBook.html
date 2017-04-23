@@ -1,0 +1,120 @@
+<div ng-include="'shared/nav/nav.html'"></div>
+
+<div class="container">
+
+    <div class="col-md-6">
+        <div class="search-box">
+            <form ng-submit="searchBooksFn()">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search your books in the internet"
+                           ng-model="searchValue">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="searchBooksFn()"><span
+                class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      </span>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="search-criteria-box">
+            <!--<label class="radio-inline">-->
+            <!--<input type="radio" checked="checked" name="inlineRadioOptions" id="inlineRadio1" value="option1"> ISBN-->
+            <!--</label>-->
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" ng-model="searchType" value="title"> Title
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" ng-model="searchType" value="author"> Author
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" ng-model="searchType" value="isbn"> ISBN
+            </label>
+        </div>
+
+        <p ng-if="noSearchResult">No search results found</p>
+        <p ng-if="searchBooks.length > 0">Search results</p>
+
+        <div class="search-results-box">
+            <div class="media search-book-item" ng-repeat="book in searchBooks">
+                <div class="media-left">
+                    <img ng-src="{{book.coverImageURL || 'assets/img/default-book-small.jpg'}}"
+                         class="media-object img-rounded" alt="...">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading"><strong>{{book.title}}</strong></h4>
+
+                    <p>{{book.author}}</p>
+                    <p class="desc-tag-line">{{formatBookDescription(book.description)}}</p>
+                    <button ng-if="!book.selected" class="btn btn-default btn-sm" ng-click="selectSearchedBook($index)">Select</button>
+                    <button ng-if="book.selected" class="btn btn-info btn-sm" ng-click="selectSearchedBook($index)">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Selected</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 add-new-book">
+        <!--<div class="row heading-line">-->
+            <!--<h1>New book details</h1>-->
+
+            <p class="alert-danger" ng-if="errorMsg">{{errorMsg}}</p>
+        <!--</div>-->
+
+        <div class="row new-book-detail-box">
+
+            <div class="col-md-3">
+                <div class="add-new-book-cover">
+                <img ng-src="{{newbook.coverImageURL || 'assets/img/default-book-small.jpg'}}" class="img-rounded"
+                alt="...">
+                </div>
+            </div>
+            <div class="col-md-9">
+
+                <form>
+                    <div class="form-group">
+                        <label>Book Title *</label>
+                        <input type="text" class="form-control" ng-model="newbook.titleName">
+                    </div>
+                    <div class="form-group">
+                        <label>Author *</label>
+                        <input type="text" class="form-control" ng-model="newbook.authorName">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" rows="3" ng-model="newbook.description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Appropriate Age *</label>
+                        <select class="form-control" ng-model="newbook.age">
+                            <option ng-repeat="a in ages">{{a}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Categories *</label>
+
+                        <div class="checkbox" ng-repeat="c in categories">
+                            <label>
+                                <input type="checkbox" ng-model="c.enabled">{{c.name}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <!--<div class="form-group">-->
+                    <!--<label>ISBN</label>-->
+                    <!--<input type="text" class="form-control" ng-model="newbook.isbn">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                    <!--<label>Book cover image</label>-->
+                    <!--<input type="file" file-model="coverImage" >-->
+                    <!--</div>-->
+                    <button type="submit" class="btn btn-primary pull-right" ng-click="addNewBook()">Add</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

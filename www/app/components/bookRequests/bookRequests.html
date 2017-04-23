@@ -1,0 +1,15 @@
+<div ng-include="'shared/nav/nav.html'"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" ng-class="inClass"><a ui-sref="book-requests.in">Books requested by others</a></li>
+                <li role="presentation" ng-class="outClass"><a ui-sref="book-requests.out">Books requested by me</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
